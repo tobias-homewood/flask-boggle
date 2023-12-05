@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Homepage</title>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/styles.css') }}"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div hidden id="game">
+                <header>
+                    <div class="data">
+                        Highscore: <span id="highscore">{{ highscore }}</span>
+                    </div>
+                    <div class="data">
+                        Games played:
+                        <span id="numberOfGames">{{ numberOfGames }}</span>
+                    </div>
+                </header>
+                <header>
+                    <div class="data">Time: <span id="timer">5</span></div>
+                    <div class="data">Score: <span id="score">0</span></div>
+                </header>
+                <div id="board_container">
+                    <table id="board"></table>
+                </div>
+                <div id="form_container">
+                    <form
+                        hidden
+                        id="word_guess"
+                        action="/word_guess"
+                        method="POST"
+                    >
+                        <input
+                            type="text"
+                            name="Word"
+                            placeholder="Word guess"
+                        />
+                    </form>
+                    <button id="start">Start</button>
+                </div>
+                <div id="message"></div>
+            </div>
+            <form id="generate_board">
+                <input
+                    id="inputSize"
+                    type="number"
+                    min="5"
+                    max="10"
+                    name="size"
+                    placeholder="Size"
+                    required
+                />
+                <button type="submit">Generate</button>
+            </form>
+        </div>
+    </body>
+</html>
