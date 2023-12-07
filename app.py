@@ -23,6 +23,9 @@ def homepage():
     print(board)
     return render_template("homepage.html", board=board, highscore=highscore, numberOfGames=numberOfGames)
 
+
+
+# these are used as API requests
 @app.route("/new_board/<int:size>")
 def new_board(size):
     global board
@@ -53,24 +56,6 @@ def update_statistics():
         "highscore": highscore,
         "numberOfGames": numberOfGames
     })
-
-"""
-@app.route("/new_board")
-def create_new_board():
-...
-...
-return jsonify(newboard)
-
-
-@app.route("/users/:id")
-def get_user():
-params = request.get_json()
-...
-some request to the database to retrieve the user...
-...
-return jsonify(user)
-"""
-
 
 
 if __name__ == "__main__":

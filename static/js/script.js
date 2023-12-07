@@ -77,12 +77,6 @@ class Boggle {
         this.startButton.style.display = "none";
     }
 
-    restart() {
-        location.reload();
-
-        // instead of reloading let's make another board with the generate board wordGuess
-    }
-
     async handleSubmit(event) {
         event.preventDefault();
         const wordInput = this.wordGuess["Word"];
